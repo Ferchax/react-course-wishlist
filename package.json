@@ -1,0 +1,64 @@
+{
+  "name": "react-course-wishlist",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Ferchax/react-course-wishlist.git",
+  "author": "Fernando Schlottmann <fgc.schlottmann@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-html": "^6.1.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.21.1",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^2.1.2"
+  },
+  "scripts": {
+    "start": "parcel ./src/index.html --open",
+    "lint": "eslint --fix src/**/*.{js,jsx}",
+    "format": "prettier --write \"*.{js,jsx,json,css}\""
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "singleQuote": true,
+    "semi": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "yarn run lint"
+    ],
+    "src/**/*.{js,jsx,json,css,scss}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "linebreak-style": "off",
+      "object-curly-spacing": "off",
+      "object-curly-newline": "off"
+    },
+    "plugins": [
+      "html"
+    ]
+  }
+}
